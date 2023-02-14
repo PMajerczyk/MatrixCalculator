@@ -8,7 +8,7 @@ int matrix::select()
 {
     std::cout << "Select matrix operation:\n";
     std::cout << "1 - addition of two matrices,\n";
-    std::cout << "2 - multiplication by a scalar,\n";
+    std::cout << "2 - matrix multiplication by a scalar,\n";
     std::cout << "3 - multiplication of two matrices,\n";
     std::cout << "Enter number: ";
     std::cin >> nr;
