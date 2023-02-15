@@ -12,18 +12,20 @@ int matrix::select()
     std::cout << "3 - multiplication of two matrices,\n";
     std::cout << "Enter number: ";
     std::cin >> nr;
-    while(nr!=1 && nr!=2 && nr!=3){
+    while(nr!=1 && nr!=2 && nr!=3 && std::cin.fail()){
         std::cin.clear();
         std::cin.sync();
         std::cout << "Error! Invalid value. Try again. \n";
         std::cout << "Enter number: ";
         std::cin >> nr;
     }
+    std::cout << nr;
     return nr;
 }
 
 void matrix::questions()
 {
+    std::cin.sync();
     std::cout << "Number of rows: ";
     std::cin >> ROW;
     while(ROW<=0 || ROW>99 || isdigit(ROW))
@@ -34,6 +36,8 @@ void matrix::questions()
         std::cout << "Number of rows: ";
         std::cin >> ROW;
     }
+    std::cout << ROW;
+    std::cin.sync();
     std::cout << "Number of columns: ";
     std::cin >> COL;
     while(COL<=0 || COL>99 || isdigit(COL))
@@ -44,10 +48,12 @@ void matrix::questions()
         std::cout << "Number of columns: ";
         std::cin >> COL;
     }
+    std::cout << COL;
 }
 
 void matrix::download()
 {
+    std::cin.sync();
     std::cin >> mx;
     value_tab = new int * [ROW];
     for (int i = 0; i < ROW; i++)

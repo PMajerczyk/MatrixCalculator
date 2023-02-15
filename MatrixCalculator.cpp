@@ -55,7 +55,6 @@ int main()
                 std::cout << "Error! Invalid value. \n";
                 std::cout << "Give scalar: ";
                 std::cin >> scalar;
-                if (std::cin.fail()==false) break;
             }
             std::cout << "Result:\n";
             for (int j=0; j < mx1.ROW; j++)
