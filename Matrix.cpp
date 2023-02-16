@@ -10,16 +10,16 @@ int matrix::select()
     std::cout << "1 - addition of two matrices,\n";
     std::cout << "2 - matrix multiplication by a scalar,\n";
     std::cout << "3 - multiplication of two matrices,\n";
+    std::cout << "4 - determinant of the matrix\n";
     std::cout << "Enter number: ";
     std::cin >> nr;
-    while(nr!=1 && nr!=2 && nr!=3 && std::cin.fail()){
+    while(nr!=1 && nr!=2 && nr!=3 && nr!=4 && std::cin.fail()){
         std::cin.clear();
         std::cin.sync();
         std::cout << "Error! Invalid value. Try again. \n";
         std::cout << "Enter number: ";
         std::cin >> nr;
     }
-    std::cout << nr;
     return nr;
 }
 
@@ -28,27 +28,23 @@ void matrix::questions()
     std::cin.sync();
     std::cout << "Number of rows: ";
     std::cin >> ROW;
-    while(ROW<=0 || ROW>99 || isdigit(ROW))
-    {
+    while(ROW<=0 || ROW>99 || isdigit(ROW)){
         std::cin.clear();
         std::cin.sync();
         std::cout << "Error! Invalid value. Try again. \n";
         std::cout << "Number of rows: ";
         std::cin >> ROW;
     }
-    std::cout << ROW;
     std::cin.sync();
     std::cout << "Number of columns: ";
     std::cin >> COL;
-    while(COL<=0 || COL>99 || isdigit(COL))
-    {
+    while(COL<=0 || COL>99 || isdigit(COL)){
         std::cin.clear();
         std::cin.sync();
         std::cout << "Error! Invalid value. Try again. \n";
         std::cout << "Number of columns: ";
         std::cin >> COL;
     }
-    std::cout << COL;
 }
 
 void matrix::download()

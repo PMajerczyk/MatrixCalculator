@@ -111,6 +111,53 @@ int main()
                 delete [] mx2.value_tab[i];
             delete [] mx2.value_tab;
         }
+        else if(select==4)
+        {
+            std::cout << "Number of rows and columns: ";
+            std::cin >> mx1.COL;
+            mx1.ROW = mx1.COL;
+            std::cout << "(The determinant is only calculated from the square matrix)\n";
+            std::cout << "Load the matrix in rows. Give " << mx1.ROW*mx1.COL << " values separated by commas. (total values only): ";
+            mx1.download();
+            std::cout << "Result:\n";
+            int suma = 0, mnozenie=1;
+            if(mx1.ROW == 1)
+                suma = mx1.value_tab[0][0];
+            else if(mx1.ROW == 2)
+                suma = mx1.value_tab[0][0]*mx1.value_tab[1][1]-mx1.value_tab[0][1]*mx1.value_tab[1][0];
+            else{
+                for(int i=0;i<mx1.COL;i++)
+                {
+                    for(int j=0;j<mx1.ROW;j++)
+                    {
+                        int k=j+i;
+                        while(k>=mx1.COL)
+                            k-=mx1.COL;
+                        mnozenie*= mx1.value_tab[j][k];
+                    }
+                    suma += mnozenie;
+                    std::cout << suma << " ";
+                    mnozenie=1;
+                }
+                for(int i=mx1.COL-1;i>=0;i--)
+                {
+                    for(int j=0;j<mx1.ROW;j++)
+                    {
+                        int k=i-j;
+                        while(k<0)
+                            k+=mx1.COL;
+                        mnozenie *= mx1.value_tab[j][k];
+                    }
+                    suma -= mnozenie;
+                    std::cout << suma << " ";
+                    mnozenie=1;
+                }
+            }
+            std::cout << "det = " << suma;
+            for (int i=0; i < mx1.ROW; i++)
+                delete [] mx1.value_tab[i];
+            delete [] mx1.value_tab;
+        }
         std::cout << "\n\n";
     }
     return 0;
