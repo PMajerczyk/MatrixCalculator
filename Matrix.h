@@ -11,8 +11,8 @@ class matrix
 
 	public:
 
-    int COL;
 	int ROW;
+    int COL;
     int **value_tab;
 	int select();
 	void questions();
