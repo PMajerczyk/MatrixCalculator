@@ -17,4 +17,5 @@ class matrix
 	int select();
 	void questions();
 	void download();
+	void delete_tab();
 };

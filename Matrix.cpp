@@ -11,10 +11,11 @@ int matrix::select()
     std::cout << "2 - matrix multiplication by a scalar,\n";
     std::cout << "3 - multiplication of two matrices,\n";
     std::cout << "4 - determinant of the matrix,\n";
-    std::cout << "5 - transpose of the matrix\n";
+    std::cout << "5 - transpose of the matrix,\n";
+    std::cout << "6 - inverse matrix\n";
     std::cout << "Enter number: ";
     std::cin >> nr;
-    while(nr!=1 && nr!=2 && nr!=3 && nr!=4 && nr!=5 && std::cin.fail()){
+    while(nr!=1 && nr!=2 && nr!=3 && nr!=4 && nr!=5 && nr!=6&& std::cin.fail()){
         std::cin.clear();
         std::cin.sync();
         std::cout << "Error! Invalid value. Try again. \n";
@@ -104,4 +105,11 @@ void matrix::download()
             }
             std::cout << "\n";
         }
+}
+
+void matrix::delete_tab()
+{
+    for (int i=0; i < ROW; i++)
+        delete [] value_tab[i];
+    delete [] value_tab;
 }
